@@ -7,7 +7,6 @@ function heappush(heap, newKey) {
     let parent = Math.floor((curr - 1) / 2);
     if (heap[curr] < heap[parent]) {
       [heap[curr], heap[parent]] = [heap[parent], heap[curr]];
-
       curr = parent;
     } else {
       break;

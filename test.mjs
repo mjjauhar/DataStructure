@@ -1,33 +1,37 @@
 class Graph {
-  constructor(noOfVertices) {
-    this.noOfVertices = noOfVertices;
-    this.Adjlist = new Map();
+  constructor() {
+    this.AdjList = new Map();
   }
 
   addVertex(v) {
-    this.Adjlist.set(v, []);
+    this.AdjList.set(v, []);
   }
-
-  addEdge(v, m) {
-    this.Adjlist.get(v).push(m);
-    this.Adjlist.get(m).push(v);
+  addEdge(v, x) {
+    this.AdjList.get(v).push(x);
+    this.AdjList.get(x).push(v);
   }
 
   printGraph() {
-    var keys = this.Adjlist.keys();
-    for (var i of keys) {
-      var values = this.Adjlist.get(i);
+    var keys = this.AdjList.keys();
+    for (var key of keys) {
+      var values = this.AdjList.get(key);
       var conc = "";
-      for (var j of values) {
-        conc += j + " ";
+
+      for (var value of values) {
+        conc += value + " ";
       }
-      console.log(i + " -> " + conc);
+      console.log(key + " -> " + conc);
     }
   }
 }
 
-let g = new Graph(4);
-g.addVertex("q");
-g.addVertex("w");
-g.addEdge("q", "w");
-g.printGraph();
+let g = new Graph();
+g.addVertex("A");
+g.addVertex("B");
+g.addVertex("C");
+
+g.addEdge("A", "B");
+g.addEdge("B", "C");
+g.addEdge("C", "A");
+
+g.printGraph()
