@@ -1,20 +1,23 @@
-function binarySearch(arr, x) {
-  let l = 0;
-  let r = arr.length - 1;
-  let mid;
+// must be sorted array
+// only search the side it can exist
 
-  while (r >= l) {
-    mid = l + Math.floor((r - l) / 2);
-
-    if (arr[mid] == x) {
-      return mid;
-    }
-    
-    if (arr[mid] > x) {
-      r = mid - 1;
-    } else {
-      l = mid + 1;
-    }
+function binarySearch(arr, target, first, last) {
+  if (first > last) {
+    return "Not found";
   }
-  return -1;
+
+  let mid = Math.floor((first + last) / 2);
+  if (arr[mid] === target) {
+    return `Value at ${mid}`;
+  }
+  if (target < arr[mid]) {
+    return binarySearch(arr, target, first, mid-1);
+  }
+  if (target > arr[mid]) {
+    return binarySearch(arr, target, mid+1, last);
+  }
 }
+
+let x = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let c = binarySearch(x,7, 0, x.length-1);
+console.log(c);

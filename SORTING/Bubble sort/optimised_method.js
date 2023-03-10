@@ -5,10 +5,10 @@
 function bubbleSort(arr, n) {
   let swapped, i, j, temp;
   for (i = 0; i < n - 1; i++) {
-    console.log(i);
+    // console.log(i);
     swapped = false;
     for (j = 0; j < n - i - 1; j++) {
-        console.log(j+"j");
+        // console.log(j+"j");
       if (arr[j] > arr[j + 1]) {
         //swap arr[j] and arr[j+1]
         temp = arr[j];

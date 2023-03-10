@@ -1,0 +1,9 @@
+
+
+1: continuesly divide the given array until no longer can be divided
+2: merge each divided parts one by one by also sorting it.
+3: continue to merge the previousely merged array untill all are merged.
+4: return the merged array
+
+
+find the largest element in an array using heap sort

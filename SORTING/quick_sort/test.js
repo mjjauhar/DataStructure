@@ -1,41 +1,36 @@
-function swap(items, left, right) {
-  var temp = items[left];
-  items[left] = items[right];
-  items[right] = temp;
+// pick a pivot
+// divide and sort
+
+function quickSort(arr, firstElement, lastElement) {
+  var index;
+  if (arr.length > 1) {
+    index = partition(arr, firstElement, lastElement);
+    if (firstElement < index - 1) {
+      quickSort(arr, firstElement, index - 1);
+    }
+    if (index < lastElement) {
+      quickSort(arr, index, lastElement);
+    }
+  }
+  return arr;
 }
 
-function partition(items, left, right) {
-  var pivot = items[Math.floor((left + right) / 2)],
-    i = left,
-    j = right;
-
+function partition(arr, first, last) {
+  let pivot = arr[Math.floor((first + last) / 2)];
+  let i = first,
+    j = last;
   while (i <= j) {
-    while (items[i] < pivot) {
+    while (arr[i] < pivot) {
       i++;
     }
-    while (items[j] > pivot) {
+    while (arr[j] > pivot) {
       j--;
     }
     if (i <= j) {
-      swap(items, i, j);
+      swap(arr, i, j);
       i++;
       j--;
     }
   }
   return i;
 }
-
-function quickSort(items, left, right) {
-  var index;
-  if (items.length > 1) {
-    index = partition(items, left, right);
-    if (left < index - 1) {
-      quickSort(items, left, index - 1);
-    }
-    if (index < right) {
-      quickSort(items, index, right);
-    }
-  }
-  return items;
-}
-

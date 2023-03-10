@@ -1,28 +1,20 @@
-function bubbleSort(arr, n) {
-  let i, j, temp, swapped;
-  for (i = 0; i < n - 1; i++) {
+function bubbleSort(arr) {
+  let swapped;
+  for (var i = 0; i < arr.length - 1; i++) {
     swapped = false;
-    for (j = 0; j < n - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        temp = arr[j];
+    for (var j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] < arr[j + 1]) {
+        var temp = arr[j];
         arr[j] = arr[j + 1];
         arr[j + 1] = temp;
         swapped = true;
       }
     }
-    if (swapped == false) {
-      break;
-    }
+    if (!swapped) break;
   }
 }
 
-function printArray(arr) {
-  return arr.forEach((item) => console.log(item));
-}
+let arr = [1, 23, 65, 3, 2, 1];
 
-let array = [1, 34, 56, 2, 0];
-let n = array.length;
-
-bubbleSort(array, n);
-
-printArray(array);
+bubbleSort(arr);
+console.log(arr);

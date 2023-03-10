@@ -1,0 +1,8 @@
+heapSort(arr)
+buildMaxHeap(arr)
+take length(arr)-1 as lastElement
+while lastElement > 0
+swap(arr,0, lastElement)
+heapify(arr, 0, lastElement)
+lastElement -= 1
+end
